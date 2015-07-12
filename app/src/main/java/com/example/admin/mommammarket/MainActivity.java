@@ -1,7 +1,10 @@
 package com.example.admin.mommammarket;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -23,18 +26,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements  MainFragment.OnFragmentInteractionListener{
 
-    int[] arrImg = {
-            R.drawable.pic1,
-            R.drawable.pic1,
-            R.drawable.pic1,
-            R.mipmap.ic_launcher
-    };
-    ArrayList<String> myDatas;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private RecyclerView.Adapter mAdapter;
+
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
@@ -46,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         initToolbar();
         initInstances();
-        Recycler();
+
 
     }
 
@@ -62,22 +56,7 @@ public class MainActivity extends ActionBarActivity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    private void Recycler() {
-        myDatas = new ArrayList<String>();
-        myDatas.add("สินค้า");
-        myDatas.add("สั่งสินค้า");
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(myDatas);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-    }
 
     private void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -118,52 +97,13 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
-    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-        private ArrayList<String> mDataset;
+    }
 
-        public MyAdapter(ArrayList<String> myDatas) {
-            mDataset = myDatas;
-        }
 
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_layout, parent, false);
-            ViewHolder vh = new ViewHolder(v);
-            return vh;
-        }
 
-        @Override
-        public void onBindViewHolder(ViewHolder holder, final int position) {
-            holder.mImageView.setImageResource(arrImg[position]);
-            holder.mTexView.setText(mDataset.get(position));
-
-            holder.mImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Snackbar.make(v, mDataset.get(position).toString(), Snackbar.LENGTH_SHORT).show();
-                }
-            });
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return mDataset.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            public TextView mTexView;
-            public ImageView mImageView;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                mTexView = (TextView) itemView.findViewById(R.id.TextBanber);
-                mImageView = (ImageView) itemView.findViewById(R.id.imageBanner);
-            }
-        }//End ViewHolder
-
-    }//End MyAdapter
 
 
 }
