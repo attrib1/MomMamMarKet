@@ -1,49 +1,47 @@
 package com.example.admin.mommammarket;
 
-
-import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 
-public class MainActivity extends ActionBarActivity implements  MainFragment.OnFragmentInteractionListener{
-
+public class Product_item_chocolate_Activity extends ActionBarActivity {
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
-
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_product_item_chocolate);
         initToolbar();
         initInstances();
 
-
+    }
+    public void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("MomMamMarKet");
     }
 
+    public void initInstances() {
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        drawerToggle = new ActionBarDrawerToggle(Product_item_chocolate_Activity.this, drawerLayout, R.string.hello_world, R.string.hello_world);
+        drawerLayout.setDrawerListener(drawerToggle);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
+        collapsingToolbarLayout.setTitle("Design Library");
+    }
     @Override
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -56,27 +54,10 @@ public class MainActivity extends ActionBarActivity implements  MainFragment.OnF
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-
-
-    public void initToolbar() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("MomMamMarKet");
-    }
-
-    public void initInstances() {
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        drawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.hello_world, R.string.hello_world);
-        drawerLayout.setDrawerListener(drawerToggle);
-
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_product_item, menu);
         return true;
     }
 
@@ -91,16 +72,10 @@ public class MainActivity extends ActionBarActivity implements  MainFragment.OnF
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 
 

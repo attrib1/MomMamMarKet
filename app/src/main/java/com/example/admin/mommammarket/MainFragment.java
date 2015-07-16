@@ -37,8 +37,6 @@ public class MainFragment extends Fragment {
     int[] arrImg = {
             R.drawable.pic1,
             R.drawable.pic1,
-            R.drawable.pic1,
-            R.mipmap.ic_launcher
     };
     ArrayList<String> myDatas;
     private RecyclerView mRecyclerView;
@@ -95,8 +93,7 @@ public class MainFragment extends Fragment {
         myDatas = new ArrayList<String>();
         myDatas.add("สินค้า");
         myDatas.add("สั่งสินค้า");
-        myDatas.add("สั่งสินค้า");
-        myDatas.add("สั่งสินค้า");
+
         mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
@@ -168,24 +165,8 @@ public class MainFragment extends Fragment {
             holder.mImageView.setImageResource(arrImg[position]);
             holder.mTexView.setText(mDataset.get(position));
 
-            holder.mImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getActivity(), mDataset.get(position), Toast.LENGTH_SHORT).show();
-                    switch (position) {
-                        case 0: {
-                            Intent intent = new Intent(getActivity(), Product_Activity.class);
-                            startActivity(intent);
-                            break;
-                        }
-                        case 1: {
-                            Intent intent = new Intent(getActivity(), Product_Activity.class);
-                            startActivity(intent);
-                            break;
-                        }
-                    }//End switch case
-                }
-            });
+            holder.setItem(position);
+
         }//End BindViewHolder
 
         @Override
@@ -193,16 +174,42 @@ public class MainFragment extends Fragment {
             return mDataset.size();
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            public TextView mTexView;
-            public ImageView mImageView;
 
-            public ViewHolder(View itemView) {
+        public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+            private TextView mTexView;
+            private ImageView mImageView;
+            private int position;
+
+            private ViewHolder(View itemView) {
                 super(itemView);
+                itemView.setOnClickListener(this);
                 mTexView = (TextView) itemView.findViewById(R.id.TextBanber);
                 mImageView = (ImageView) itemView.findViewById(R.id.imageBanner);
             }
-        }//End ViewHolder
+            public void setItem(int position) {
+                this.position = position;
 
+            }
+
+            @Override
+            public void onClick(View v) {
+                onclick_listitem_product(position);
+            }
+        }//End ViewHolder
+        private void onclick_listitem_product(int position) {
+            Toast.makeText(getActivity(), mDataset.get(position), Toast.LENGTH_SHORT).show();
+            switch (position) {
+                case 0: {
+                    Intent intent = new Intent(getActivity(), Product_Activity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case 1: {
+                    Intent intent = new Intent(getActivity(), Order_Activity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }//End switch case
+        }
     }//End MyAdapter
 }

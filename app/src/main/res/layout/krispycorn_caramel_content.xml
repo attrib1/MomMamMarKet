@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="27dp"
+            android:text="@string/KRISPY_CORN"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView2"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:text="@string/krispy_Des" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="คาราเมลหอมๆพร้อมลูกเกศแสนอร่อย"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ไม่ใช่แค่คอนเฟลกที่ทานกับนมในเวลาเช้า เพียงอย่างเดี่ยวเท่านั้นยังสามารถสร้าง ความอร่อยได้หลากหลายรูปแบบ"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_marginTop="23dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:text="สั่งซื้อ" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/TextBanber"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center_vertical"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pic1" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/TextBanber"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pic1" />
+
+
+    </LinearLayout>
+</merge>
