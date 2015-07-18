@@ -70,7 +70,6 @@ public class Product_Activity extends ActionBarActivity implements Product_Fragm
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show();
             return true;
         }
 

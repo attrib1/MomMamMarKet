@@ -33,10 +33,9 @@ public class Product_Fragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     int[] arrImgProduct = {
-            R.drawable.pic1,
-            R.drawable.pic1,
-            R.drawable.pic1,
-            R.mipmap.ic_launcher
+            R.drawable.corn_caramel,
+            R.drawable.corn_choco,
+
     };
     ArrayList<String> myDatas;
     ArrayList<String> myDatas_Desc;

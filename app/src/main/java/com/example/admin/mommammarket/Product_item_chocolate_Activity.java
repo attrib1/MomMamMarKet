@@ -1,5 +1,6 @@
 package com.example.admin.mommammarket;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
@@ -9,6 +10,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class Product_item_chocolate_Activity extends ActionBarActivity {
@@ -25,11 +28,20 @@ public class Product_item_chocolate_Activity extends ActionBarActivity {
         initToolbar();
         initInstances();
 
+        Button btnOder = (Button) findViewById(R.id.btn_choco);
+        btnOder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Product_item_chocolate_Activity.this, Order_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
     public void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("MomMamMarKet");
     }
 
     public void initInstances() {
@@ -40,8 +52,9 @@ public class Product_item_chocolate_Activity extends ActionBarActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
-        collapsingToolbarLayout.setTitle("Design Library");
+        collapsingToolbarLayout.setTitle("MomMamMarKet");
     }
+
     @Override
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -77,7 +90,6 @@ public class Product_item_chocolate_Activity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

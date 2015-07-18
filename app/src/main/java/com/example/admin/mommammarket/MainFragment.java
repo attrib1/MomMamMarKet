@@ -35,8 +35,8 @@ public class MainFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     int[] arrImg = {
-            R.drawable.pic1,
-            R.drawable.pic1,
+            R.drawable.banner_product,
+            R.drawable.pic_order,
     };
     ArrayList<String> myDatas;
     private RecyclerView mRecyclerView;
