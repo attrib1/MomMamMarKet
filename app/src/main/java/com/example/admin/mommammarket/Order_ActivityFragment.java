@@ -41,7 +41,7 @@ public class Order_ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent newActivity = new Intent(Intent.ACTION_CALL);
-                newActivity.setData(Uri.parse("tel:0884684413"));
+                newActivity.setData(Uri.parse("tel:0933803302"));
                 startActivity(newActivity);
             }
         });
@@ -72,9 +72,9 @@ public class Order_ActivityFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 String lineSep = System.getProperty("line.separator");
                 SmsManager smsManager = SmsManager.getDefault();
-                String strPhoneNo = "0884684413"; //เบอร์โทรที่ส่ง SMS
+                String strPhoneNo = "0933803302"; //เบอร์โทรที่ส่ง SMS
                 String strMessage = "Name : "+sms_name.getText().toString()+lineSep+"Order : "+sms_order.getText().toString()
-                        +lineSep+"Ads : "+sms_address;
+                        +lineSep+"Ads : "+sms_address.getText().toString();
                 smsManager.sendTextMessage(strPhoneNo, null, strMessage, null, null);
                 Toast.makeText(getActivity(), "ดำเนินการแล้ว",
                         Toast.LENGTH_SHORT).show();
